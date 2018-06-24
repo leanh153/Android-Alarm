@@ -30,7 +30,7 @@ how To Open Project Not Present In Recent Projects:
 
 ```
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![image two](https://github.com/leanh153/Android-Alarm/blob/master/images/second.jpg)
 
 
 * Step 2:
@@ -50,6 +50,9 @@ how To Open Project Not Present In Recent Projects:
 After that click Ok then click app then click java
 ```
 
+![image two](https://github.com/leanh153/Android-Alarm/blob/master/images/second.jpg)
+
+
 * Step 4: 
 
 ``` 
@@ -57,7 +60,7 @@ After that click Ok then click app then click java
 for designing Android UI will be opened. After that click Ok then click res then click layout
 ```
 
-
+![image two](https://github.com/leanh153/Android-Alarm/blob/master/images/second.jpg)
 
 End with an example of getting some data out of the system or using it for a little demo
 
