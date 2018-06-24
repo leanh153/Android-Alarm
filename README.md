@@ -56,6 +56,7 @@ run 'app' (may instead: Ctrl + F5)
 
 * My LinkIn [LinkIn](https://www.linkedin.com/in/lênanh)
 
+* Email me [email](anhle1351994@gmail.com)
 
 
 ## License
