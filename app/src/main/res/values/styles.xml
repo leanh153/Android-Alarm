@@ -1,0 +1,12 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar"></style>
+
+    <style name="ActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+</resources>

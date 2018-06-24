@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Alarm</string>
+    <string name="alarm_name">Alarm Name</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="add">Add</string>
+    <string name="Ringtone">Ringtone</string>
+</resources>

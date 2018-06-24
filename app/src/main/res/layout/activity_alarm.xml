@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.leanh.activity.AddAlarmActivity">
+
+
+    <Toolbar
+        android:id="@+id/toolBarAdd"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:theme="@style/ActionBar">
+
+        <TextView
+            android:id="@+id/activityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/add"
+            android:textColor="@color/colorAccent" />
+    </Toolbar>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8">
+
+        <TimePicker
+            android:id="@+id/time_Picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:timePickerMode="spinner">
+
+        </TimePicker>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/alarm_name"
+                android:textStyle="bold"
+                android:id="@+id/textView3" />
+
+            <EditText
+                android:id="@+id/name_Alarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/app_name"
+                android:inputType="textAutoComplete"
+                android:paddingTop="5dp"
+                android:layout_below="@+id/textView3"
+                android:layout_alignStart="@+id/textView3" />
+
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/addAlarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="@string/add" />
+    </LinearLayout>
+
+
+</LinearLayout>
