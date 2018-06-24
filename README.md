@@ -30,6 +30,8 @@ how To Open Project Not Present In Recent Projects:
 
 ```
 
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
 
 * Step 2:
 ``` 
@@ -39,6 +41,7 @@ how To Open Project Not Present In Recent Projects:
 **Important Note:** Alternatively you can also prefer opening build.gradle file to open project.
 - Select the file location in android studio
 
+![image two](https://github.com/leanh153/Android-Alarm/blob/master/images/second.jpg)
 
 * Step 3:
 ``` 
@@ -104,7 +107,7 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the file for details
 
 ## Acknowledgments
 
