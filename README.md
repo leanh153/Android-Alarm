@@ -58,7 +58,8 @@ Move to the project folder with cd Android-Alarm.
 Pull any changes from your remote branch 'master': git pull origin master
 
 - Another easy way, after clicking _Fork_ button near the top right corner, click download Zip file
-right the repository right side ![like this](https://github.com/leanh153/Android-Alarm/blob/master/images/clone or download.JPG)
+right the repository right side ![like this](https://github.com/leanh153/Android-Alarm/blob/master/images/cloneordownload.JPG)
+to download repository.
 
 ### Installing
 
