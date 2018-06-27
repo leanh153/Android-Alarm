@@ -11,12 +11,29 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-```
-* Intall Android IDE on your local machine: Android studio or Intellij,...
-* Your machine need to download JAVA and setting Java home.
-* May be you need set up android emulator or genymotion to run app, otherwise 
-you can run directly on your android device.
-```
+The [Android SDK](https://developer.android.com/sdk/index.html) is necessary to build the app. 
+There are different options to install it in your system, depending of the IDE you decide to use.
+Check Google documentation about [installation](https://developer.android.com/sdk/installing/index.html) 
+for more details on these options. After installing it, add the full path to the directories 'tools/' 
+and 'platform-tools/' from your Android SDK installation into the PATH variable 
+of your environment.
+
+Open a terminal and type 'android' to start the Android SDK Manager. To build the Alarm for 
+Android app you will need to install at least the next SDK packages:
+
+* Android SDK Tools and Android SDK Platform-tools (already installed); upgrade to their last 
+versions is usually a good idea.
+* Android SDK Build-Tools 27.0.3.
+* Android 6.0 (API 23), SDK Platform; needed to build the Alarm app.
+* watch this video to set up [java](https://youtu.be/EknEIzswvC0) 
+
+Install any other package you consider interesting, such as emulators, [Genymotion](https://youtu.be/MWZ2rVFOQWw).
+
+For other software dependencies check the details in the section corresponding to your preferred 
+IDE or build system.
+
+                                                                                       
+
 
 ### Installing
 
