@@ -1,7 +1,7 @@
 # Alarm
 
  * Require Android API 23 or upper (Android 6.0.0).
- * This is an Alarm project. Supporting multiple alarm, you can set as many as you want.
+ * This is an Alarm project, using SQLite to save data. Supporting multiple alarm, you can set as many as you want.
 
 ## Getting Started
 
