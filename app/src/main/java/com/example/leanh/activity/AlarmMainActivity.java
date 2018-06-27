@@ -274,6 +274,7 @@ public class AlarmMainActivity extends AppCompatActivity implements AlarmAdapter
         // trigger at the right time( at the first second start) but this will save the battery.
         // "AlarmManager.RTC_WAKEUP" allow this app wake device from idle time and the time
         // based on device time
+        
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,
                 calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmIntent);
 
