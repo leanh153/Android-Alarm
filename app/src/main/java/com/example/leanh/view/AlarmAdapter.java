@@ -220,5 +220,11 @@ public class AlarmAdapter extends RecyclerView.Adapter {
         }
     }
 
+    // TODO: get Alarm arraylist
+
+
+    public ArrayList<Alarm> getmAlarms() {
+        return mAlarms;
+    }
 }
 

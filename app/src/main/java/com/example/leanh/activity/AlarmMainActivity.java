@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.leanh.database.DataBaseManager;
 import com.example.leanh.model.Alarm;
@@ -81,35 +82,48 @@ public class AlarmMainActivity extends AppCompatActivity implements AlarmAdapter
         if (requestCode == Constants.REQUEST_ADD && resultCode == RESULT_OK) {
             // get data and set a new alarm by function setAlarm
             alarm = (Alarm) data.getSerializableExtra("Alarm");
-            // add alarm to adapter
-            alarmAdapter.add(alarm);
-            // refresh adapter
-            alarmAdapter.notifyDataSetChanged();
-            // add it to database
-            dataBaseManager.insert(alarm);
-            // set new PendingIntent
-            setAlarm(alarm, 0);
+            // this check if the setting time already exist
+            boolean containAlarm = checkAlarm(alarm);
+
+            if (!containAlarm) {
+                // add alarm to adapter
+                alarmAdapter.add(alarm);
+                // refresh adapter
+                alarmAdapter.notifyDataSetChanged();
+                // add it to database
+                dataBaseManager.insert(alarm);
+                // set new PendingIntent
+                setAlarm(alarm, 0);
+            }
+
 
         } else if (requestCode == Constants.REQUEST_EDIT && resultCode == RESULT_OK) {
             // get alarm object from AddAlarmActivity
             alarm = (Alarm) data.getSerializableExtra("Alarm");
-            // get alarm's position
-            int position = data.getExtras().getInt("position");
-            // update alarm at position
-            alarmAdapter.updateAlarm(alarm, position);
-            // this help refresh display
-            alarmAdapter.notifyDataSetChanged();
-            // update alarm to database
-            dataBaseManager.update(alarm);
-            // if alarm.getOnOff ==1 set alarm else not
-            if (alarm.getOnOff() == 1) {
-                // get data and set a new alarm by function setAlarm with flag update current because
-                // this PendingIntent has already existed
-                setAlarm(alarm, PendingIntent.FLAG_UPDATE_CURRENT);
-            }
+            // this check if the setting time already exist
+            boolean containAlarm = checkAlarm(alarm);
 
+            if (!containAlarm) {
+                // get alarm's position
+                int position = data.getExtras().getInt("position");
+                // update alarm at position
+                alarmAdapter.updateAlarm(alarm, position);
+                // this help refresh display
+                alarmAdapter.notifyDataSetChanged();
+                // update alarm to database
+                dataBaseManager.update(alarm);
+                // if alarm.getOnOff ==1 set alarm else not
+                if (alarm.getOnOff() == 1) {
+                    // get data and set a new alarm by function setAlarm with flag update current because
+                    // this PendingIntent has already existed
+                    setAlarm(alarm, PendingIntent.FLAG_UPDATE_CURRENT);
+                }
+            }
+            
         }
     }
+
+    
 
 
     @Override
@@ -183,6 +197,19 @@ public class AlarmMainActivity extends AppCompatActivity implements AlarmAdapter
 
     }
 
+    // TODO: this check if Alarm have already existed 
+    private boolean checkAlarm(Alarm alarm) {
+        boolean contain = false;
+        for (Alarm alar : alarmAdapter.getmAlarms()) {
+            if (alar.getHour_x() == alarm.getHour_x() && alar.getMinute_x() == alarm.getMinute_x())
+                contain = true;
+        }
+        if (contain) {
+            Toast.makeText(this, "You have already set this Alarm", Toast.LENGTH_SHORT).show();
+        }
+        return contain;
+    }
+
     // TODO: import data from dataBase and create AlarmAdapter
     private void importData() {
         // if alarmAdapter null it's means data have not imported, yet or database is empty
@@ -247,6 +274,8 @@ public class AlarmMainActivity extends AppCompatActivity implements AlarmAdapter
         // trigger at the right time( at the first second start) but this will save the battery.
         // "AlarmManager.RTC_WAKEUP" allow this app wake device from idle time and the time
         // based on device time
+//        alarmManager.setExactAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
+//        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmIntent);
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,
                 calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmIntent);
 
