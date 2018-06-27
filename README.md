@@ -61,8 +61,8 @@ A step by step series of examples that tell you how to get a development  runnin
 
 * After building finish, you can run by click on run icon or on the tab bar click on 
 run 'app' (may instead: Ctrl + F5)
-* You can also copy file app-debug.apk in project to your android phone to run directly this require
-android 6.0 and upper.
+* You can also copy file [app-debug.apk](https://github.com/leanh153/Android-Alarm/blob/master/app-debug.apk) in project to
+ your android phone to [run directly]() this require android 6.0 and upper.
 
 
 ## Authors
@@ -73,7 +73,7 @@ android 6.0 and upper.
 
 * My LinkIn [LinkIn](https://www.linkedin.com/in/lênanh)
 
-* **Connect me:** email: anhle1531994@gmail.com
+* Connect me email: anhle1531994@gmail.com
 
 
 ## License
