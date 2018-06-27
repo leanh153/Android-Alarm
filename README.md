@@ -63,7 +63,7 @@ to download repository.
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development  running :
+A step by step series of examples that tell you how to get a development and running :
 
 **Note** this for the case you have already opened one project.
 * Step 1:
@@ -90,7 +90,7 @@ A step by step series of examples that tell you how to get a development  runnin
 * After building finish, you can run by click on run icon or on the tab bar click on 
 run 'app' (may instead: Ctrl + F5)
 * You can also copy file [app-debug.apk](https://github.com/leanh153/Android-Alarm/blob/master/app-debug.apk) in project to
- your android phone to [run app (video)]() this require android 6.0 and upper.
+ your android phone to [run app (video)](https://www.youtube.com/watch?v=EhJNsZ3whpA) this require android 6.0 and upper.
 
 
 ## Authors
