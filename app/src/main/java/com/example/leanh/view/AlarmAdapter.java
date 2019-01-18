@@ -17,6 +17,10 @@ import com.example.leanh.model.Alarm;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class AlarmAdapter extends RecyclerView.Adapter {
 
     private ArrayList<Alarm> mAlarms;
@@ -70,43 +74,38 @@ public class AlarmAdapter extends RecyclerView.Adapter {
 
     public class TimeViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener,
             PopupMenu.OnMenuItemClickListener {
+
+        @BindView(R.id.time_Alarm)
         TextView time;  // this displays time alarm
+        @BindView(R.id.alarm_Name)
         TextView title; // this displays alarm title
+        @BindView(R.id.toggle_Alarm)
         ToggleButton toggleButton;  // toggle button to set and cancel alarm
 
         private TimeViewHolder(View itemView, CallBack CallBack) {
             super(itemView);
-
+            ButterKnife.bind(this, itemView);
             // register callback
             mCallBack = CallBack;
             // setting long click, display menu for each item
             itemView.setOnCreateContextMenuListener(this);
-            time = itemView.findViewById(R.id.time_Alarm);
-            title = itemView.findViewById(R.id.alarm_Name);
-            toggleButton = itemView.findViewById(R.id.toggle_Alarm);
-            onToggleOnOff();
 
         }
 
         // TODO: 6/15/2018 process onclick toggle button
-        private void onToggleOnOff() {
-            toggleButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    boolean isChecked = toggleButton.isChecked();
-                    if (isChecked) {
-                        // change time' text color if toggle state have changed
-                        time.setTextColor(Color.rgb(155, 231, 174));
-                        // start alarm when toggle on, getPosition method support by RecyclerView
-                        mCallBack.startAlarm(mAlarms.get(getPosition()));
-                    } else {
-                        time.setTextColor(Color.rgb(155, 155, 155));
-                        // cancel alarm when toggle off
-                        mCallBack.cancelAlarm(mAlarms.get(getPosition()));
-                    }
-                }
-
-            });
+        @OnClick(R.id.toggle_Alarm)
+        public void onToggleClicked(View v) {
+            boolean isChecked = toggleButton.isChecked();
+            if (isChecked) {
+                // change time' text color if toggle state have changed
+                time.setTextColor(Color.rgb(155, 231, 174));
+                // start alarm when toggle on, getPosition method support by RecyclerView
+                mCallBack.startAlarm(mAlarms.get(getPosition()));
+            } else {
+                time.setTextColor(Color.rgb(155, 155, 155));
+                // cancel alarm when toggle off
+                mCallBack.cancelAlarm(mAlarms.get(getPosition()));
+            }
         }
 
 

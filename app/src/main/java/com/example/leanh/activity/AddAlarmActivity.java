@@ -15,12 +15,21 @@ import android.widget.Toolbar;
 import com.example.leanh.model.Alarm;
 import com.example.leanh.ultil.Constants;
 
-public class AddAlarmActivity extends AppCompatActivity implements View.OnClickListener {
-    private Toolbar toolBarAdd;
-    private Button addAlarm;
-    private TimePicker timePicker;
-    private TextView activityName;
-    private EditText name_Alarm;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class AddAlarmActivity extends AppCompatActivity {
+    @BindView(R.id.toolBarAdd)
+    Toolbar toolBarAdd;
+    @BindView(R.id.addAlarm)
+    Button addAlarm;
+    @BindView(R.id.time_Picker)
+    TimePicker timePicker;
+    @BindView(R.id.activityName)
+    TextView activityName;
+    @BindView(R.id.name_Alarm)
+    EditText name_Alarm;
     // addScreen true if user press "+" button, false if user press edit in popup menu
     private boolean addScreen;
     // this is alarm object need to edit
@@ -32,24 +41,17 @@ public class AddAlarmActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
+        ButterKnife.bind(this);
         initView();
 
     }
 
     // TODO: this initialize view for this  activity
     private void initView() {
-        //TODO: initialize event and AddAlarmActivity's components
-        toolBarAdd = findViewById(R.id.toolBarAdd);
         // Set back icon
         toolBarAdd.setNavigationIcon(R.drawable.ic_back);
-        activityName = findViewById(R.id.activityName);
-        timePicker = findViewById(R.id.time_Picker);
-        addAlarm = findViewById(R.id.addAlarm);
-        name_Alarm = findViewById(R.id.name_Alarm);
-
         setScreen();
         backPressed();
-        addAlarm.setOnClickListener(this);
 
     }
 
@@ -106,7 +108,7 @@ public class AddAlarmActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
-    @Override
+    @OnClick(R.id.addAlarm)
     public void onClick(View v) {
         // TODO: process when user press ADD or EDIT button
         Intent intent = new Intent(this, AlarmMainActivity.class);

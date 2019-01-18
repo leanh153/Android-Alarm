@@ -21,8 +21,18 @@ import com.example.leanh.view.AlarmAdapter;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class AlarmMainActivity extends AppCompatActivity implements AlarmAdapter.CallBack, View.OnClickListener {
+
+public class AlarmMainActivity extends AppCompatActivity implements AlarmAdapter.CallBack {
+
+
+    @BindView(R.id.openAdd)
+    Button button;
+    @BindView(R.id.alarmView)
+    RecyclerView recyclerView;
     // this to manage data base
     private DataBaseManager dataBaseManager;
     // this to manage Alarm adapter like ArrayList
@@ -32,18 +42,12 @@ public class AlarmMainActivity extends AppCompatActivity implements AlarmAdapter
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         initView();
     }
 
     // TODO: this initialize view for activity
     private void initView() {
-        // TODO: Khởi tạo các thành phần của giao diện và cài đặt sự kiện cho màn hình MH-1
-
-
-        Button button = findViewById(R.id.openAdd);
-        RecyclerView recyclerView = findViewById(R.id.alarmView);
-        button.setOnClickListener(this);
-
         // set layout for recycle view
         //hasFixedSize true if adapter changes cannot affect the size of the RecyclerView
         recyclerView.setHasFixedSize(true);
@@ -56,20 +60,14 @@ public class AlarmMainActivity extends AppCompatActivity implements AlarmAdapter
         importData();
         // set adapter for recycle view
         recyclerView.setAdapter(alarmAdapter);
-
-
     }
 
-
-    @Override
-    public void onClick(View view) {
+    @OnClick(R.id.openAdd)
+    public void onOpenAddAlarm(View view) {
         //TODO: processing when user click on "+" button start new intent with request code
-        if (view.getId() == R.id.openAdd) {
             Intent intent = new Intent(getApplicationContext(), AddAlarmActivity.class);
             intent.putExtra("screenType", "add");
             startActivityForResult(intent, Constants.REQUEST_ADD);
-        }
-
     }
 
 
